@@ -310,7 +310,7 @@ pub unsafe trait IApplicationView: IUnknown {
     pub unsafe fn unknown12(&self, arg: *mut SIZE) -> HRESULT;
 }
 
-#[windows_interface::interface("3F07F4BE-B107-441A-AF0F-39D82529072C")]
+#[windows_interface::interface("FF72FFDD-BE7E-43FC-9C03-AD81681E88E4")]
 pub unsafe trait IVirtualDesktop: IUnknown {
     pub unsafe fn is_view_visible(
         &self,
@@ -438,7 +438,7 @@ pub unsafe trait IVirtualDesktopNotificationService: IUnknown {
     pub unsafe fn unregister(&self, cookie: u32) -> HRESULT;
 }
 
-#[windows_interface::interface("A3175F2D-239C-4BD2-8AA0-EEBA8B0B138E")]
+#[windows_interface::interface("F31574D6-B682-4CDC-BD56-1827860ABEC6")]
 pub unsafe trait IVirtualDesktopManagerInternal: IUnknown {
     pub unsafe fn get_desktop_count(&self, out_count: *mut UINT) -> HRESULT;
 
