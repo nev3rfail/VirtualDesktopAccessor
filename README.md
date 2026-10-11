@@ -10,7 +10,7 @@ You can browse the latest documentation of the forked `winvd` library at:\
 To use the forked `winvd` crate in a Rust project add the following to `Cargo.toml`:
 
 ```toml
-winvd = { git = "https://github.com/Lej77/VirtualDesktopAccessor.git", tag = "v0.0.49-extra.1", features = ["multiple-windows-versions"] }
+winvd = { git = "https://github.com/Lej77/VirtualDesktopAccessor.git", tag = "v0.0.49-extra.2", features = ["multiple-windows-versions"] }
 ```
 
 ## AutoHotkey example here:
