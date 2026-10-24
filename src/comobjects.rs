@@ -652,7 +652,7 @@ impl ComObjects {
     #[apply(retry_function)]
     pub fn is_window_on_current_desktop(&self, window: &HWND) -> Result<bool> {
         unsafe {
-            let mut value = false;
+            let mut value = 0;
             self.get_manager()?
                 .is_window_on_current_desktop(*window, &mut value)
                 .as_result()
@@ -661,7 +661,7 @@ impl ComObjects {
                     Error::ComElementNotFound => Error::WindowNotFound,
                     _ => er,
                 })?;
-            Ok(value)
+            Ok(value != 0)
         }
     }
 
@@ -717,11 +717,11 @@ impl ComObjects {
     pub fn is_pinned_window(&self, window: &HWND) -> Result<bool> {
         let view = self.get_iapplication_view_for_hwnd(window)?;
         unsafe {
-            let mut value = false;
+            let mut value = 0;
             self.get_pinned_apps()?
                 .is_view_pinned(ComIn::new(&view), &mut value)
                 .as_result()?;
-            Ok(value)
+            Ok(value != 0)
         }
     }
 
@@ -762,11 +762,11 @@ impl ComObjects {
         let view = self.get_iapplication_view_for_hwnd(window)?;
         let app_id = self.get_iapplication_id_for_view(&view)?;
         unsafe {
-            let mut value = false;
+            let mut value = 0;
             self.get_pinned_apps()?
                 .is_app_pinned(app_id, &mut value)
                 .as_result()?;
-            Ok(value)
+            Ok(value != 0)
         }
     }
 

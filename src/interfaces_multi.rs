@@ -338,7 +338,7 @@ pub unsafe trait IVirtualDesktopManager: IUnknown {
     pub unsafe fn is_window_on_current_desktop(
         &self,
         top_level_window: HWND,
-        out_on_current_desktop: *mut bool,
+        out_on_current_desktop: *mut BOOL,
     ) -> HRESULT;
     pub unsafe fn get_desktop_by_window(
         &self,

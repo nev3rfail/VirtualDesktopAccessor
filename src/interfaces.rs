@@ -244,7 +244,7 @@ pub unsafe trait IVirtualDesktopManager: IUnknown {
     pub unsafe fn is_window_on_current_desktop(
         &self,
         top_level_window: HWND,
-        out_on_current_desktop: *mut bool,
+        out_on_current_desktop: *mut BOOL,
     ) -> HRESULT;
     pub unsafe fn get_desktop_by_window(
         &self,
@@ -629,14 +629,14 @@ impl IVirtualDesktopManagerInternal {
 
 #[windows_interface::interface("4CE81583-1E4C-4632-A621-07A53543148F")]
 pub unsafe trait IVirtualDesktopPinnedApps: IUnknown {
-    pub unsafe fn is_app_pinned(&self, app_id: APPIDPWSTR, out_iss: *mut bool) -> HRESULT;
+    pub unsafe fn is_app_pinned(&self, app_id: APPIDPWSTR, out_iss: *mut BOOL) -> HRESULT;
     pub unsafe fn pin_app(&self, app_id: APPIDPWSTR) -> HRESULT;
     pub unsafe fn unpin_app(&self, app_id: APPIDPWSTR) -> HRESULT;
 
     pub unsafe fn is_view_pinned(
         &self,
         view: ComIn<IApplicationView>,
-        out_iss: *mut bool,
+        out_iss: *mut BOOL,
     ) -> HRESULT;
     pub unsafe fn pin_view(&self, view: ComIn<IApplicationView>) -> HRESULT;
     pub unsafe fn unpin_view(&self, view: ComIn<IApplicationView>) -> HRESULT;

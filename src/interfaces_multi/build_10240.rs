@@ -425,14 +425,14 @@ reusable_com_interface!(
     },
     {
         pub unsafe trait IVirtualDesktopPinnedApps: IUnknown {
-            pub unsafe fn is_app_pinned(&self, app_id: APPIDPWSTR, out_iss: *mut bool) -> HRESULT;
+            pub unsafe fn is_app_pinned(&self, app_id: APPIDPWSTR, out_iss: *mut BOOL) -> HRESULT;
             pub unsafe fn pin_app(&self, app_id: APPIDPWSTR) -> HRESULT;
             pub unsafe fn unpin_app(&self, app_id: APPIDPWSTR) -> HRESULT;
 
             pub unsafe fn is_view_pinned(
                 &self,
                 view: ComIn<IApplicationView>,
-                out_iss: *mut bool,
+                out_iss: *mut BOOL,
             ) -> HRESULT;
             pub unsafe fn pin_view(&self, view: ComIn<IApplicationView>) -> HRESULT;
             pub unsafe fn unpin_view(&self, view: ComIn<IApplicationView>) -> HRESULT;
